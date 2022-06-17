@@ -1,0 +1,259 @@
+$border-none: none !important;
+$white-color: #ffffff;
+
+@mixin time($top, $left) {
+
+  color: $white-color;
+  font-weight: bold;
+  font-size: 2rem;
+  position: absolute;
+  top: $top;
+  left: $left
+}
+
+@mixin aside-borders {
+  width: 7%;
+  margin-top: -2%;
+  background-color: #A31F2A;
+}
+
+* {
+  font-family: Roboto Light, sans-serif;
+}
+
+body {
+  background-color: #F7F7F7 !important;
+  overflow-x: hidden;
+}
+
+
+#close-tag {
+  text-align: right;
+  color: #000000;
+  background-color: #F7F7F7;
+  width: 22rem;
+  margin: auto;
+  padding: 18px 0;
+  font-size: 19px;
+}
+
+// * OUTER CARD *
+.outer-card {
+  width: 23rem;
+  margin: auto;
+  border: $border-none;
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+
+  .outer-card-header {
+    color: $white-color;
+    border-bottom: $border-none;
+    background-color: #A91B1A !important;
+    font-weight: bold;
+    width: 100%;
+    margin: auto;
+    overflow-x: hidden;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    .header-text {
+      animation-name: rightToLeft;
+      animation-duration: 10s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      font-family: 'Arial', "Times New Roman";
+      letter-spacing: 1px;
+      font-size: 15px;
+      width: 405px;
+    }
+  }
+
+  // * INNER CARD *
+  .inner-card {
+    margin: auto;
+    border: $border-none;
+
+    .inner-card-header {
+      border-bottom: $border-none;
+      background-color: transparent;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+
+      .colors-bg {
+        width: 8rem;
+        height: 8rem;
+        animation: blink 1s linear infinite;;
+      }
+    }
+
+    #time {
+      @include time(8%, 50%);
+      transform: translate(-50%, -50%);
+      text-align: center;
+      animation: movingClock 5s infinite;
+      animation-direction: alternate-reverse;
+    }
+
+    #clock, #date {
+      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5)
+    }
+  }
+
+  .card-body {
+    padding: 0;
+
+    /* Images */
+
+    .card-body-elements {
+      display: flex;
+      flex-direction: row;
+      padding: 1rem;
+      margin-top: -5%;
+
+      .card-img-top {
+        width: 86%;
+      }
+    }
+
+    .text-center {
+      padding: 1rem;
+      margin-top: -6%;
+      margin-bottom: 20%;
+
+      .fa-arrow-up-right-from-square {
+        width: 16%;
+        height: 60px;
+        font-size: 15px;
+        padding-top: 20px;
+        background-color: #0C7FAC;
+        border: 1px solid #0C7FAC;
+        color: $white-color;
+      }
+
+      #nx {
+        width: 85%;
+        text-align: left;
+      }
+
+      button {
+        background-color: #0C7FAC;
+        border: 1px solid #0C7FAC;
+        color: $white-color;
+        height: 60px;
+        font-weight: 500;
+        font-size: 22px;
+      }
+
+      p {
+        margin-top: 20px;
+        font-weight: bold;
+        color: #6A6A6A;
+        letter-spacing: 2px;
+      }
+
+      .card-img-bottom {
+        width: 70%;
+        margin-top: -3%;
+
+        -webkit-mask-size: 5px;
+        -webkit-mask-image: -webkit-gradient(linear, center bottom, center top,
+                color-stop(0.00,  rgba(0,0,0,0)),
+                color-stop(.7,  rgba(0,0,0,1)));
+      }
+
+    }
+  }
+}
+
+/* CARD FOOTER */
+
+.footer-card {
+  position: fixed !important;
+  height: 73px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+  width: 23rem;
+  margin: auto;
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+  //border-top: 1px dotted black !important;
+  border: none !important;
+
+
+  .card-body {
+    background-image: linear-gradient(to right, #000 10%, rgba(255, 255, 255, 0) 0%);
+    background-position: top;
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+
+    color: #0379A6;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+  }
+}
+
+#left-border {
+  @include aside-borders;
+  border-bottom-left-radius: 10px;
+}
+
+#right-border {
+  @include aside-borders;
+  border-bottom-right-radius: 10px;
+}
+
+#first-color {
+  background-color: #773E73;
+  border-top-left-radius: 10px;
+}
+
+#second-color {
+  background-color: #4F3B61;
+}
+
+#third-color {
+  background-color: #E63130;
+  border-top-right-radius: 10px;
+}
+
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(390px);
+  }
+  100% {
+    transform: translateX(-300px);
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes movingClock {
+  0% {
+    left: 32%;
+  }
+  50% {
+    left: 68%;
+  }
+  100% {
+    left: 32%;
+  }
+}
+
+/* QR CODE CANVAS  */
+
+#canvas {
+  width: 151px !important;
+  height: 151px !important;
+}

@@ -1,0 +1,218 @@
+* {
+  font-family: Roboto Light, sans-serif;
+}
+
+body {
+  background-color: #F7F7F7 !important;
+  overflow-x: hidden;
+}
+
+#close-tag {
+  text-align: right;
+  color: #000000;
+  background-color: #F7F7F7;
+  width: 22rem;
+  margin: auto;
+  padding: 18px 0;
+  font-size: 19px;
+}
+
+.outer-card {
+  width: 23rem;
+  margin: auto;
+  border: none !important;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+.outer-card .outer-card-header {
+  color: #ffffff;
+  border-bottom: none !important;
+  background-color: #A91B1A !important;
+  font-weight: bold;
+  width: 100%;
+  margin: auto;
+  overflow-x: hidden;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+.outer-card .outer-card-header .header-text {
+  animation-name: rightToLeft;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  font-family: "Arial", "Times New Roman";
+  letter-spacing: 1px;
+  font-size: 15px;
+  width: 405px;
+}
+.outer-card .inner-card {
+  margin: auto;
+  border: none !important;
+}
+.outer-card .inner-card .inner-card-header {
+  border-bottom: none !important;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.outer-card .inner-card .inner-card-header .colors-bg {
+  width: 8rem;
+  height: 8rem;
+  animation: blink 1s linear infinite;
+}
+.outer-card .inner-card #time {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 2rem;
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation: movingClock 5s infinite;
+  animation-direction: alternate-reverse;
+}
+.outer-card .inner-card #clock, .outer-card .inner-card #date {
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+.outer-card .card-body {
+  padding: 0;
+  /* Images */
+}
+.outer-card .card-body .card-body-elements {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  margin-top: -5%;
+}
+.outer-card .card-body .card-body-elements .card-img-top {
+  width: 86%;
+}
+.outer-card .card-body .text-center {
+  padding: 1rem;
+  margin-top: -6%;
+  margin-bottom: 20%;
+}
+.outer-card .card-body .text-center .fa-arrow-up-right-from-square {
+  width: 16%;
+  height: 60px;
+  font-size: 15px;
+  padding-top: 20px;
+  background-color: #0C7FAC;
+  border: 1px solid #0C7FAC;
+  color: #ffffff;
+}
+.outer-card .card-body .text-center #nx {
+  width: 85%;
+  text-align: left;
+}
+.outer-card .card-body .text-center button {
+  background-color: #0C7FAC;
+  border: 1px solid #0C7FAC;
+  color: #ffffff;
+  height: 60px;
+  font-weight: 500;
+  font-size: 22px;
+}
+.outer-card .card-body .text-center p {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #6A6A6A;
+  letter-spacing: 2px;
+}
+.outer-card .card-body .text-center .card-img-bottom {
+  width: 70%;
+  margin-top: -3%;
+  -webkit-mask-size: 5px;
+  -webkit-mask-image: -webkit-gradient(linear, center bottom, center top, color-stop(0, rgba(0, 0, 0, 0)), color-stop(0.7, black));
+}
+
+/* CARD FOOTER */
+.footer-card {
+  position: fixed !important;
+  height: 73px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+  width: 23rem;
+  margin: auto;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  border: none !important;
+}
+.footer-card .card-body {
+  background-image: linear-gradient(to right, #000 10%, rgba(255, 255, 255, 0) 0%);
+  background-position: top;
+  background-size: 10px 1px;
+  background-repeat: repeat-x;
+  color: #0379A6;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+#left-border {
+  width: 7%;
+  margin-top: -2%;
+  background-color: #A31F2A;
+  border-bottom-left-radius: 10px;
+}
+
+#right-border {
+  width: 7%;
+  margin-top: -2%;
+  background-color: #A31F2A;
+  border-bottom-right-radius: 10px;
+}
+
+#first-color {
+  background-color: #773E73;
+  border-top-left-radius: 10px;
+}
+
+#second-color {
+  background-color: #4F3B61;
+}
+
+#third-color {
+  background-color: #E63130;
+  border-top-right-radius: 10px;
+}
+
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(390px);
+  }
+  100% {
+    transform: translateX(-300px);
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes movingClock {
+  0% {
+    left: 32%;
+  }
+  50% {
+    left: 68%;
+  }
+  100% {
+    left: 32%;
+  }
+}
+/* QR CODE CANVAS  */
+#canvas {
+  width: 151px !important;
+  height: 151px !important;
+}
+
+/*# sourceMappingURL=style.css.map */
